@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gofood/detail_screen.dart';
 
-class homeScreen extends StatefulWidget {
-  const homeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<homeScreen> createState() => _homeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _homeScreenState extends State<homeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   List<Map> data = [
     {
       'name': 'Veg Whopper',
@@ -407,7 +407,7 @@ class _homeScreenState extends State<homeScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -428,12 +428,12 @@ class _homeScreenState extends State<homeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Hello,\nAre you Hungry?",
+            const Text("Hello,\nAre you Hungry?",
                 style: TextStyle(
                     color: Colors.deepOrange,
                     fontSize: 25,
                     fontWeight: FontWeight.bold)),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -441,7 +441,7 @@ class _homeScreenState extends State<homeScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Row(children: [
+              child: const Row(children: [
                 SizedBox(width: 10),
                 Icon(Icons.search, color: Colors.grey),
                 SizedBox(width: 10),
@@ -449,11 +449,11 @@ class _homeScreenState extends State<homeScreen> {
                     style: TextStyle(color: Colors.grey, fontSize: 16))
               ]),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Expanded(
               child: GridView.builder(
                 itemCount: data.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, childAspectRatio: 0.80),
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -462,7 +462,7 @@ class _homeScreenState extends State<homeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => detailScreen(data[index]),
+                            builder: (context) => DetailScreen(data[index]),
                           ))
                     },
                     child: Card(
@@ -477,28 +477,28 @@ class _homeScreenState extends State<homeScreen> {
                           ),
                           Text(
                             data[index]['name'],
-                            style: TextStyle(fontSize: 19),
+                            style: const TextStyle(fontSize: 19),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 0,
                               ),
                               Text(
-                                "₹" + data[index]['price'] + "/-",
-                                style: TextStyle(
+                                "${"₹" + data[index]['price']}/-",
+                                style: const TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                               OutlinedButton(
                                   onPressed: () => {},
-                                  child: Text(
+                                  child: const Text(
                                     "ADD +",
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                   )),
-                              SizedBox(width: 1),
+                              const SizedBox(width: 1),
                             ],
                           )
                         ],

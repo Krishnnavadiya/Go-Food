@@ -1,16 +1,16 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:gofood/home_screen.dart';
-import 'package:gofood/register_screen.dart';
+import 'package:gofood/Home_screen.dart';
+import 'package:gofood/Register_screen.dart';
 
-class loginScreen extends StatefulWidget {
-  const loginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<loginScreen> createState() => _loginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _loginScreenState extends State<loginScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   bool passwordVisible = true;
   TextEditingController mobileNumberController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -30,21 +30,21 @@ class _loginScreenState extends State<loginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Text("Welcome Back,",
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold)),
                     ],
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Text(
                         "Sign in to continue",
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -53,7 +53,7 @@ class _loginScreenState extends State<loginScreen> {
                     decoration: InputDecoration(
                         labelText: "Mobile Number",
                         prefixText: "+91",
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.person_outline,
                         ),
                         fillColor: Colors.white,
@@ -63,7 +63,7 @@ class _loginScreenState extends State<loginScreen> {
                             borderRadius:
                                 BorderRadius.circular(10))), //maxLength: 10,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextField(
@@ -72,7 +72,7 @@ class _loginScreenState extends State<loginScreen> {
                     obscureText: passwordVisible,
                     decoration: InputDecoration(
                         labelText: "Password",
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock_outline,
                         ),
                         suffixIcon: IconButton(
@@ -90,10 +90,10 @@ class _loginScreenState extends State<loginScreen> {
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10))),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
@@ -102,7 +102,7 @@ class _loginScreenState extends State<loginScreen> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   ElevatedButton(
@@ -118,7 +118,8 @@ class _loginScreenState extends State<loginScreen> {
                       if (mobileNumberController.text.isEmpty ||
                           passwordController.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Please Enter The Detail")));
+                            const SnackBar(
+                                content: Text("Please Enter The Detail")));
                       } else {
                         for (int index = 0; index < userData.length; index++) {
                           if (mobileNumberController.text ==
@@ -128,7 +129,7 @@ class _loginScreenState extends State<loginScreen> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => homeScreen(),
+                                  builder: (context) => const HomeScreen(),
                                 ));
                             error = false;
                             break;
@@ -138,26 +139,28 @@ class _loginScreenState extends State<loginScreen> {
                         }
                         if (error == true) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Enter Valid Detail")));
+                              const SnackBar(
+                                  content: Text("Enter Valid Detail")));
                         }
                       }
                     },
-                    child: Text("Sign in",
-                        style: TextStyle(fontSize: 20, color: Colors.white)),
                     style: ButtonStyle(
-                      padding: MaterialStatePropertyAll(EdgeInsets.all(15)),
+                      padding:
+                          const MaterialStatePropertyAll(EdgeInsets.all(15)),
                       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
                       elevation: MaterialStateProperty.all(15),
                     ),
+                    child: const Text("Sign in",
+                        style: TextStyle(fontSize: 20, color: Colors.white)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("You don't have an account?",
+                      const Text("You don't have an account?",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold)),
                       TextButton(
@@ -165,10 +168,10 @@ class _loginScreenState extends State<loginScreen> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => registerScreen(),
+                                builder: (context) => const RegisterScreen(),
                               ));
                         },
-                        child: Text(
+                        child: const Text(
                           "Sign up",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),

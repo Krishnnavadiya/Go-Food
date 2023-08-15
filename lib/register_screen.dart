@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:gofood/home_screen.dart';
-import 'package:gofood/login_screen.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
+import 'package:gofood/Home_screen.dart';
+import 'package:gofood/Login_screen.dart';
 
-class registerScreen extends StatefulWidget {
-  const registerScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<registerScreen> createState() => _registerScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _registerScreenState extends State<registerScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   bool passwordVisible = true, cpasswordVisible = true;
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -29,14 +29,14 @@ class _registerScreenState extends State<registerScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 60),
-              Text("Welcome,",
+              const SizedBox(height: 60),
+              const Text("Welcome,",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-              Text(
+              const Text(
                 "SignUp to start your new Journey",
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 "Create New Account",
                 style: TextStyle(
                   color: Colors.deepOrange,
@@ -44,7 +44,7 @@ class _registerScreenState extends State<registerScreen> {
                   fontSize: 30,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               TextFormField(
@@ -52,14 +52,14 @@ class _registerScreenState extends State<registerScreen> {
                 controller: nameController,
                 decoration: InputDecoration(
                     labelText: "Full name",
-                    prefixIcon: Icon(Icons.person),
+                    prefixIcon: const Icon(Icons.person),
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
@@ -67,14 +67,14 @@ class _registerScreenState extends State<registerScreen> {
                 controller: emailController,
                 decoration: InputDecoration(
                     labelText: "Email",
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: const Icon(Icons.email),
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
@@ -83,14 +83,14 @@ class _registerScreenState extends State<registerScreen> {
                 decoration: InputDecoration(
                     labelText: "Phone number",
                     prefixText: "+91",
-                    prefixIcon: Icon(Icons.phone),
+                    prefixIcon: const Icon(Icons.phone),
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
@@ -99,7 +99,7 @@ class _registerScreenState extends State<registerScreen> {
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                     labelText: "Password",
-                    prefixIcon: Icon(Icons.lock_outline),
+                    prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
@@ -115,7 +115,7 @@ class _registerScreenState extends State<registerScreen> {
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
@@ -124,7 +124,7 @@ class _registerScreenState extends State<registerScreen> {
                 controller: confirmpasswordController,
                 decoration: InputDecoration(
                     labelText: "Confirm Password",
-                    prefixIcon: Icon(Icons.lock_outline),
+                    prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
@@ -140,7 +140,7 @@ class _registerScreenState extends State<registerScreen> {
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
@@ -148,7 +148,7 @@ class _registerScreenState extends State<registerScreen> {
                 controller: cityController,
                 decoration: InputDecoration(
                   labelText: "City",
-                  prefixIcon: Icon(Icons.location_city),
+                  prefixIcon: const Icon(Icons.location_city),
                   fillColor: Colors.white,
                   filled: true,
                   border: OutlineInputBorder(
@@ -157,10 +157,10 @@ class _registerScreenState extends State<registerScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               ElevatedButton(
@@ -171,7 +171,7 @@ class _registerScreenState extends State<registerScreen> {
                       passwordController.text.isEmpty ||
                       confirmpasswordController.text.isEmpty ||
                       cityController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Please Full fill The Details")));
                   } else if (passwordController.text ==
                       confirmpasswordController.text) {
@@ -187,7 +187,7 @@ class _registerScreenState extends State<registerScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => homeScreen(),
+                          builder: (context) => const HomeScreen(),
                         ));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -196,22 +196,22 @@ class _registerScreenState extends State<registerScreen> {
                     );
                   }
                 },
-                child: Text("Sign Up",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
                 style: ButtonStyle(
-                  padding: MaterialStatePropertyAll(EdgeInsets.all(15)),
+                  padding: const MaterialStatePropertyAll(EdgeInsets.all(15)),
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10))),
                   elevation: MaterialStateProperty.all(15),
                 ),
+                child: const Text("Sign Up",
+                    style: TextStyle(fontSize: 20, color: Colors.white)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?",
+                  const Text("Already have an account?",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   TextButton(
@@ -219,10 +219,10 @@ class _registerScreenState extends State<registerScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => loginScreen(),
+                              builder: (context) => const LoginScreen(),
                             ));
                       },
-                      child: Text(
+                      child: const Text(
                         "Login",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),

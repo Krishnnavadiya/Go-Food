@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:gofood/login_screen.dart';
-import 'package:gofood/register_screen.dart';
+import 'package:gofood/Login_screen.dart';
+import 'package:gofood/Register_screen.dart';
 
-class onboardingScreen extends StatefulWidget {
-  const onboardingScreen({Key? key}) : super(key: key);
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
-  State<onboardingScreen> createState() => _onboardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _onboardingScreenState extends State<onboardingScreen> {
+class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   int currentindex = 0;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepOrangeAccent,
@@ -32,14 +33,14 @@ class _onboardingScreenState extends State<onboardingScreen> {
                       children: [
                         Container(
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(25),
                                   bottomRight: Radius.circular(25))),
                           child: Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 50,
                               ),
                               Image.asset(contents[i].image),
@@ -59,24 +60,24 @@ class _onboardingScreenState extends State<onboardingScreen> {
                               //                     color: currentindex==index ?Colors.deepOrange:Colors.grey),
                               //               ))),
                               // ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 30,
                               ),
                               Text(contents[i].title,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 35,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: "robot")),
-                              SizedBox(
+                              const SizedBox(
                                 height: 25,
                               ),
                               Text(
                                 contents[i].discription,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(color: Colors.grey),
+                                style: const TextStyle(color: Colors.grey),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 40,
                               ),
                             ],
@@ -94,12 +95,12 @@ class _onboardingScreenState extends State<onboardingScreen> {
                   (index) => Container(
                         height: 10,
                         width: currentindex == index ? 30 : 10,
-                        margin: EdgeInsets.only(right: 5),
+                        margin: const EdgeInsets.only(right: 5),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white),
                       ))),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -108,18 +109,18 @@ class _onboardingScreenState extends State<onboardingScreen> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => registerScreen(),
+                        builder: (context) => const RegisterScreen(),
                       ));
                 },
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
                 style: ButtonStyle(
                   side: MaterialStateProperty.all(
-                      BorderSide(color: Colors.white)),
+                      const BorderSide(color: Colors.white)),
                   padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 45)),
+                      const EdgeInsets.symmetric(horizontal: 45)),
+                ),
+                child: const Text(
+                  "Sign Up",
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ),
               OutlinedButton(
@@ -127,21 +128,21 @@ class _onboardingScreenState extends State<onboardingScreen> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => loginScreen(),
+                        builder: (context) => const LoginScreen(),
                       ));
                 },
-                child: Text(
+                style: ButtonStyle(
+                    padding: MaterialStateProperty.all(
+                        const EdgeInsets.symmetric(horizontal: 45)),
+                    backgroundColor: MaterialStateProperty.all(Colors.white)),
+                child: const Text(
                   "Sign In",
                   style: TextStyle(color: Colors.deepOrange, fontSize: 15),
                 ),
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all(
-                        EdgeInsets.symmetric(horizontal: 45)),
-                    backgroundColor: MaterialStateProperty.all(Colors.white)),
               )
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
         ],
       ),
     );
